@@ -1,0 +1,18 @@
+<p> NOTES</p>
+<%= form_tag("/notes/create") do %>
+  <%= text_field_tag :content %>
+  <%= submit_tag("create") %>
+<% end %>
+<ul>
+  <% if(@notes.size > 0) %>
+    <% @notes.each do |note| %>   <%#   <% @notes.each_with_index do |note, i| %>
+      <li>
+        <a href="/notes/<%= note.id %>">     <%#<a href="/notes/<%= i %>
+          <%= note.content %>
+        </a>
+      </li>
+    <% end %>
+  <% else %>
+    <p>There are no notes</p>
+  <% end %>
+</ul>
